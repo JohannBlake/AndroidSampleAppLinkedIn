@@ -1,0 +1,97 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "423a47c97274f286738d7ba701e69c24",
+    "entities": [
+      {
+        "tableName": "LinkedInConnectionEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `firstName` TEXT, `lastName` TEXT, `profileUrl` TEXT, `occupation` TEXT, `entityUrn` TEXT, `photoUrl` TEXT, `dateConnected` INTEGER, `location` TEXT, `companyId` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "firstName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastName",
+            "columnName": "lastName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "profileUrl",
+            "columnName": "profileUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "occupation",
+            "columnName": "occupation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "entityUrn",
+            "columnName": "entityUrn",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "photoUrl",
+            "columnName": "photoUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dateConnected",
+            "columnName": "dateConnected",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "location",
+            "columnName": "location",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "companyId",
+            "columnName": "companyId",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_LinkedInConnectionEntity_lastName",
+            "unique": false,
+            "columnNames": [
+              "lastName"
+            ],
+            "createSql": "CREATE  INDEX `index_LinkedInConnectionEntity_lastName` ON `${TABLE_NAME}` (`lastName`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '423a47c97274f286738d7ba701e69c24')"
+    ]
+  }
+}

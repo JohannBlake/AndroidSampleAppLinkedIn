@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/grey_800</color>
+    <color name="colorPrimaryDark">@color/grey_900</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="buttonBackgroundColor">@color/grey_850</color>
+    <color name="connection_list_item_occupation">@color/teal_200</color>
+    <color name="footer_background">@color/grey_900</color>
+    <color name="pulsating_text">@color/teal_A200</color>
+</resources>

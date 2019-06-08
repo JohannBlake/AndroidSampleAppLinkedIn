@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph_main"
+            app:startDestination="@id/connections_fragment">
+
+    <fragment android:id="@+id/connections_fragment"
+              android:name="com.linkedintools.ui.main.fragments.connections.ConnectionsFragment"
+              android:label="fragment_connections"
+              tools:layout="@layout/fragment_connections"/>
+
+    <fragment android:id="@+id/groups_fragment"
+              android:name="com.linkedintools.ui.main.fragments.groups.GroupsFragment"
+              android:label="fragment_groups"
+              tools:layout="@layout/fragment_groups"/>
+
+    <fragment android:id="@+id/messages_fragment"
+              android:name="com.linkedintools.ui.main.fragments.messages.MessagesFragment"
+              android:label="fragment_messages"
+              tools:layout="@layout/fragment_messages"/>
+
+    <fragment android:id="@+id/tips_fragment"
+              android:name="com.linkedintools.ui.main.fragments.tips.TipsFragment"
+              android:label="fragment_tips"
+              tools:layout="@layout/fragment_tips"/>
+
+    <action android:id="@+id/action_mainActivity_to_loginActivity"
+            app:destination="@id/loginActivity"/>
+
+    <activity android:id="@+id/loginActivity"
+              android:name="com.linkedintools.ui.login.LoginActivity"
+              android:label="loginActivity"/>
+
+</navigation>

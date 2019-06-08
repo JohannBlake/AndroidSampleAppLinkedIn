@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">LinkedIn Tools</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="app">App</string>
+    <string name="application_error">Application Error</string>
+    <string name="cancel">Cancel</string>
+    <string name="click_here_to_open_linkedintools">Click here to open LinkedInTools</string>
+    <string name="connection">Connections</string>
+    <string name="connections">Connections</string>
+    <string name="could_not_determine_membership_since_date">Could not determine how long you have been a member of LinkedIn</string>
+    <string name="fatal_error">A fatal error has occurred. It is recommended that after restarting the app that you sign out and then login again.</string>
+    <string name="groups">Groups</string>
+    <string name="information">Information</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="linkedintools_service_running">LinkedInTools Service Running...</string>
+    <string name="login_to_linkedin">Login to LinkedIn</string>
+    <string name="messages">Messages</string>
+    <string name="notification_category_name_service_status">Service status</string>
+    <string name="ok">OK</string>
+    <string name="preference_file_key">com.linkedintools.preference_file_key</string>
+    <string name="problem_determining_when_you_joined_linkedin">Problem determining when you joined LinkedIn</string>
+    <string name="problem_parsing_linkedin_connections">Problem parsing LinkedIn connections</string>
+    <string name="problem_parsing_linkedin_user_settings">Problem parsing LinkedIn user settings</string>
+    <string name="problem_retrieving_connections">Problem retrieving connections</string>
+    <string name="problem_retrieving_linkedin_setttings">Problem retrieving your LinkedIn settings.</string>
+    <string name="problem_retrieving_total_connection_count">Problem retrieving total connection count.</string>
+    <string name="retrieving_connections">Retrieving connections...</string>
+    <string name="search">Search</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign out</string>
+    <string name="tips">Tips</string>
+    <string name="tools">Tools</string>
+    <string name="you_must_be_a_member_of_linkedin_for_at_least_2_years">You must be a member of LinkedIn for at least 2 years to use this feature.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bunnies">BunniesActivity</string>
+</resources>
