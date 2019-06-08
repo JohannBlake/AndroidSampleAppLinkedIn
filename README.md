@@ -89,14 +89,14 @@ A lot of times, your ViewModel will just need to obtain some data from the repos
 
 ### Repository Layer
 
-The repository layer actually consists of several sub layers which includes access to shared preferences, files and databases. The repository is your centralized entry point when accessing data. It should be defined as a singleton and injected into your Application class so that it remains accessible throughout the lifetime of your app. The primary purpose of the repository is to forward calls from the business layer or service to the data sources responsible for handling the data. In many cases, observables are returned to the business object or service and not the actual data. The repository should not in any way process the data it retrieves from a data source. The processing of data should be done by the data source objects that handle shared preferences, files, and databases.
+The repository layer actually consists of several sub layers which includes access to shared preferences, files and databases. The repository is your centralized entry point when accessing data. It should be defined as a singleton and injected into your Application class so that it remains accessible throughout the lifetime of your app. The primary purpose of the repository is to forward calls from the business layer or service to the data sources responsible for handling the data. In many cases, observables are returned to the business object or service and not the actual data. The repository should not in any way process the data it retrieves from a data source. The processing of data for storage or retrieval should be done by the data source objects that handle shared preferences, files, and databases.
 <br><br>
 
 ### Service Layer
 
 If your app requires a service, it should only run for as long as it needs to process work and terminate immediately after the work has completed. This demo app illustrates this. Connections are retrieved from LinkedIn in the service that is running as a foreground service. This requires that a notification be displayed on the Android status bar. As soon as the connections have been retrieved, the service is terminated and the notification is removed. This will save on the device's battery consumption. Like the repository, it too should be accessible from your Application class. In this demo app, it is accessed indirectly through a utility class that manages the lifecycle of the service. Because a service can only be created by the OS, just like activities are only created by the OS, it is not possible to inject an instance of a service into the app using dependency injection.
 
-It should also be noted that other layers cannot reliably know when the service is started or terminated by using APIs to check for their presence. Concurrency issues can arise when a service is started and stopped. For this reason, the service communicates its state of being either runningn or terminating with the utility class which stores this state as a boolean flag.
+It should also be noted that other layers cannot reliably know when the service is started or terminated by using APIs to check for their presence. Concurrency issues can arise when a service is started and stopped. For this reason, the service communicates its state of being either running or terminating with the utility class which stores this state as a boolean flag.
 <br><br>
 
 ### Models
@@ -106,18 +106,18 @@ This is not a layer. These are data classes that are used to hold data used thro
 
 ### RxJava-Based Event Bus
 
-There are times when you need to get notified about certain events in your app. It could be that place where you want to get notified has no connection to the source where that notification is generated. While you could use RxJava to subscribe to an observable that is returned from some layer, this can at times be very awkward if the observable is created on some sub layer and needs to be returned up the hierarchy. In essence, you end up repeating the callback hell that RxJava is designed to avoid. And then there's the issue where you don't want to have some tight coupling between two unrelated portions of your app. For example, in a GPS app, there may be many diverse areas that would like to be notified whenever a GPS location is obtained. This is where an event bus comes into use. Of course, you can use alternative solutions such as broadcast receivers. But in keeping with the growing trend in reactive programming, this app employs the use of an event bus that is built using RxJava.
+There are times when sections in your app need to get notified about certain events from other locations in your app. It could be that place where you want to get notified has no connection to the source where that notification is generated. While you could use RxJava to subscribe to an observable that is returned from some layer, this can at times be very awkward if the observable is created on some sub layer and needs to be returned up the hierarchy. In essence, you end up repeating the callback hell that RxJava is designed to avoid. And then there's the issue where you don't want to have some tight coupling between two unrelated portions of your app. For example, in a GPS app, there may be many diverse areas that would like to be notified whenever a GPS location is obtained. This is where an event bus comes into use. Of course, you can use alternative solutions such as broadcast receivers. But in keeping with the growing trend in reactive programming, this app employs the use of an event bus that is built using RxJava.
 
 The RxJava-based event bus allows you to easily created publishers and subscribers. And instead of publishing just the data that subscribers are interested in, the data is wrapped in an observable allowing the subscriber to handle the published data in a more reactive fashion.
 
 Publishing an event looks like this:
 
-```
+```kotlin
 App.context.bus.onConnectionsRetrievalStarted().onNext(Unit)
 ```
 And subscribing to one looks like this:
 
-```
+```kotlin
 App.context.bus.onConnectionsRetrievalStarted().subscribe {
   // Do something
 }
