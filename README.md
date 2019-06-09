@@ -30,7 +30,7 @@ The *Sign out* item will cause you to return back to the sign in screen.
 
 If you restart the app after signing in, your list of connections is automatically retrieved from the Room database.
 
-The app employs a service for retrieving LinkedIn connections in the background (as a foreground service) and stores the data in the Room database in batches of 40. Because the recyclerview is bound to the Room database, the UI is updated immediately and automaticly whenever data is stored allowing for an asynchronous operation to take place. You can also pull down on the list which will cause the service to retrieve all the LinkedIn connections again and update the list with any new connections it finds.
+The app employs a service for retrieving LinkedIn connections in the background (as a foreground service) and stores the data in the Room database in batches of 40. Because the recyclerview is bound to the Room database, the UI is updated immediately and automaticly whenever data is stored allowing for an asynchronous operation to take place. You can also pull down on the list (when the list is scrolled to the top) which will cause the service to retrieve all the LinkedIn connections again and update the list with any new connections it finds.
 
 The app also demonstrates how to gracefully recover from a network exception. If you disable your network while your LinkedIn connections are being retrieved, up to 5 atttempts will be made to retry using exponential back off, after which an error message is shown.
 
