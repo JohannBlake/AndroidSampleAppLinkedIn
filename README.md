@@ -30,6 +30,8 @@ The *Sign out* item will cause you to return back to the sign in screen.
 
 If you restart the app after signing in, your list of connections is automatically retrieved from the Room database.
 
+The app also demonstrates how to gracefully recover from a network exception. If you disable your network while your LinkedIn connections are being retrieved, up to 5 atttempts will be made to retry using exponential back off, after which an error message is shown.
+
 You can download the apk file from the project's root and try it out without the need to compile the code. The filename is app-debug.apk
 
 
@@ -122,8 +124,7 @@ App.context.bus.onConnectionsRetrievalStarted().subscribe {
   // Do something
 }
 ```
-<br>
-
+<br><br>
 ### MIT License
 
 ```
