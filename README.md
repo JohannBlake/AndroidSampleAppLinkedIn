@@ -34,7 +34,9 @@ The app employs a service for retrieving LinkedIn connections in the background 
 
 The app also demonstrates how to gracefully recover from a network exception. If you disable your network while your LinkedIn connections are being retrieved, up to 5 atttempts will be made to retry using exponential back off, after which an error message is shown.
 
-You can download the apk file from the project's root and try it out without the need to compile the code. The filename is linkedintools.apk
+You can download the apk file from the project's root and try it out without the need to compile the code. The filename is linkedintools.apk 
+
+NOTE: The apk file contains more functionality than the source code and limits the number of downloaded LinkedIn connections to 40.
 
 
 ## Architecture
